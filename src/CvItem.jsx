@@ -11,7 +11,7 @@ import CardMedia from '@mui/material/CardMedia';
 
 export default function CvItem({from, to, title, description, logo, bulletPoints}){
     return (
-      <Card sx={{ maxWidth: 700, width: 700, marginBottom: 5 }}>
+      <Card sx={{ maxWidth: 365, width: 365, marginBottom: 5 }}>
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.primary" gutterBottom>
               {from} - {to}

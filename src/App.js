@@ -48,10 +48,10 @@ export default function App() {
         <div>
           <CvItem
             from={"Oct. 2022"}
-            to={"Present"} title="Software engineer"
+            to={"Present"} title="Software engineer - Associate"
             description="Fullstack Front office developer in FOLAB team in Societe Generale"
             logo={logoSg}
-            location="Paris"
+            location="Paris, France"
             bulletPoints={[
               "<b>FOLAB team:</b> Delivery and time to market oriented team - promotes flexibility, adaptability and fast learning",
               "<b>Working closely with clients</b> by being localized with them</b> ",
@@ -63,7 +63,7 @@ export default function App() {
           <CvItem
             from={"Apr. 2019"}
             to={"Oct. 2022"}
-            title="Software Engineer"
+            title="Software Engineer - Associate"
             description="Fullstack software engineer in QDR team in Societe Generale"
             logo={logoSg}
             location="Hong Kong"
@@ -94,7 +94,7 @@ export default function App() {
             to={"Apr. 2019"} title="Internship - Business Analyst"
             description="Management control team"
             logo={logoSg}
-            location="Paris"
+            location="Paris, France"
             bulletPoints={["<b>Business analyst</b> for the development of a digital platform in ITEC/COO team",
             "Gathering requirements, writing functional specifications and conduct user testing"]} />
         </div>

@@ -16,7 +16,7 @@ export default function CvItem({from, to, title, description, logo, bulletPoints
       height: 140,
       borderRadius: "4px",
       position: "absolute",
-      marginLeft: matches ? 10 : 105,
+      marginLeft: matches ? 1 : 105,
       zIndex: 1000
     }
   }

@@ -1,26 +1,26 @@
-import MenuIcon from '@mui/icons-material/Menu';
 import School from '@mui/icons-material/School';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
 import WorkIcon from '@mui/icons-material/Work';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import logoBva from './assets/logo-bva.png';
 import logoDauphine from './assets/logo-dauphine.png';
 import logoSg from './assets/logo-societe-generale.png';
 import logoTse from './assets/logo-tse.png';
+import CvAppBar from './CvAppBar.jsx';
 import CvItem from './CvItem';
+import SkillItem from './SkillsItem.jsx';
+
 
 function TabPanel(props) {
+
   const { children, value, index, ...other } = props;
 
   return (
     <div
+      width="100vw"
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
@@ -43,36 +43,22 @@ export default function App() {
     setValue(newValue);
   };
   return (
-    
+
     <>
-    <Box >
-      <AppBar position='relative'>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-
-
-        </Toolbar>
-      </AppBar>
-    </Box>
+      <CvAppBar></CvAppBar>
       <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
         <Tabs value={value} onChange={handleChange} centered style={{ backgroundColor: '#e7ebf0' }}>
-          <Tab label="Work Experience" icon={<WorkIcon/>}/>
-          <Tab label="Education" icon={<School/>} />
+          <Tab label="Work" icon={<WorkIcon />} />
+          <Tab label="Education" icon={<School />} />
+          <Tab label="Skills" icon={<StarHalfIcon />} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
         <div>
           <CvItem
             from={"Oct. 2022"}
-            to={"Present"} title="Software engineer - Associate"
+            to={"Present"} 
+            title="Software engineer - Associate"
             description="Fullstack Front office developer in FOLAB team in Societe Generale"
             logo={logoSg}
             location="Paris, France"
@@ -150,6 +136,7 @@ export default function App() {
         </div>
         <div>
           <CvItem
+          
             from={"2014"}
             to={"2015"}
             location="Paris, France"
@@ -170,7 +157,41 @@ export default function App() {
           />
         </div>
       </TabPanel>
+       
+      <TabPanel value={value} index={2}>
+        <div>
+          <SkillItem
+            category={'Development languages'}
+            listSkills=
+              {[
+                {'name': 'Java', 'rating': 4},
+                {'name': 'Python', 'rating': 3},
+                {'name': 'Typescript', 'rating': 3},
+                {'name': 'Javascript', 'rating': 2},
+                {'name': 'React', 'rating': 1},
+                {'name': 'C#', 'rating': 1}
 
+              ]}
+            
+          />
+          <SkillItem
+            category={'Technologies and Frameworks'}
+            listSkills=
+              {[
+                {'name': 'Springboot', 'rating': 4},
+                {'name': 'Spark', 'rating': 2},
+                {'name': 'Kubernetes', 'rating': 3},
+                {'name': 'PostgreSQL', 'rating': 3},
+                {'name': 'Angular', 'rating': 3},
+                {'name': 'Unix', 'rating': 3},
+                {'name': 'Windows', 'rating': 2},
+                {'name': 'Unix', 'rating': 3},
+
+              ]}
+            
+          />
+        </div>
+      </TabPanel>
     </>
 
   )

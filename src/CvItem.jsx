@@ -10,17 +10,19 @@ import { CardMedia } from '@mui/material';
 
 
 export default function CvItem({from, to, title, description, logo, bulletPoints, location}){
+  const matches = useMediaQuery('(min-width:600px)');
+
   const styles = {
     media: {
       width: "100%",
       height: 140,
       borderRadius: "4px",
       position: "absolute",
-      marginLeft: matches ? 1 : 105,
+      marginLeft: matches ? 105 : 40,
       zIndex: 1000
     }
   }
-  const matches = useMediaQuery('(min-width:600px)');
+
 
   const width = matches ? 1000 : 365;
   const fontSize = matches ? 18 : 15;

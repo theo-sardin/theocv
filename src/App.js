@@ -186,7 +186,6 @@ export default function App() {
                 {'name': 'Unix', 'rating': 3},
                 {'name': 'Windows', 'rating': 2},
                 {'name': 'Unix', 'rating': 3},
-
               ]}
             
           />

@@ -10,14 +10,15 @@ import { CardMedia } from '@mui/material';
 
 
 export default function CvItem({from, to, title, description, logo, bulletPoints, location, logoDimension}){
-  const matches = useMediaQuery('(min-width:600px)');
+  const mediumscreen = useMediaQuery('(min-width:600px) and (max-width:1200px');
+  const bigscreen = useMediaQuery('(min-width:1200px)');
 
   const styles = {
     media: {
       height: 140,
       borderRadius: "4px",
       position: "absolute",
-      marginLeft: matches ? 150 : 35,
+      marginLeft: bigscreen ? 150 : mediumscreen ? 70 :  35,
 
       zIndex: 1000
     }
@@ -25,9 +26,9 @@ export default function CvItem({from, to, title, description, logo, bulletPoints
   }
   
 
-  const width = matches ? 1400 : 365;
-  const fontSize = matches ? 18 : 15;
-  const imgSize = matches ? '100px' :  '50px';
+  const width = bigscreen ? 1400 : 365;
+  const fontSize = bigscreen ? 18 : 15;
+  const imgSize = bigscreen ? '100px' : mediumscreen ? '75px' : '50px';
     return (
       <Card sx={{ maxWidth: width, width: width, marginBottom: 1}}>
           <CardContent>

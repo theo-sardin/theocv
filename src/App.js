@@ -1,5 +1,6 @@
 import * as React from 'react';
-import logo from './assets/logo-societe-generale.png';
+import logoSg from './assets/logo-societe-generale.png';
+import logoBva from './assets/logo-bva.png';
 import CvItem from './CvItem';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -49,7 +50,8 @@ export default function App() {
             from={"Oct. 2022"}
             to={"Present"} title="Software engineer"
             description="Fullstack Front office developer in FOLAB team in Societe Generale"
-            logo={logo}
+            logo={logoSg}
+            location="Paris"
             bulletPoints={[
               "<b>FOLAB team:</b> Delivery and time to market oriented team - promotes flexibility, adaptability and fast learning",
               "<b>Working closely with clients</b> by being localized with them</b> ",
@@ -63,7 +65,8 @@ export default function App() {
             to={"Oct. 2022"}
             title="Software Engineer"
             description="Fullstack software engineer in QDR team in Societe Generale"
-            logo={logo}
+            logo={logoSg}
+            location="Hong Kong"
             bulletPoints={[
               "<b>Day to day development</b> and support directly for traders on trading floor",
               "<b>Algorithm trading desk tactical IT:</b> sets of microservices to enable the business such as risk and p&L reporting, news notification or exposing historical data for analysis",
@@ -74,15 +77,38 @@ export default function App() {
         <div>
           <CvItem
             from={"Feb. 2018"}
-            to={"Apr. 2019"} title="Software engineer"
-            description="Fullstack Front office developer in FOLAB team in Societe Generale"
-            logo={logo}
+            to={"Apr. 2019"} title="VIE - IT COO team"
+            description="Management control team"
+            logo={logoSg}
+            location="Hong Kong"
             bulletPoints={[
               "<b>Budget follow up</b>, creating monthly reports to asses IT teams budget consumption and assist managers in forecasting accordingly",
               "<b>Updating purchase processes</b> to improve quality of vendor costs analysis and budgeting",
-              "<b>>Working with managers to evaluate staffing needs</b> and ensure data quality of the financial reporting",
+              "<b>Working with managers to evaluate staffing needs</b> and ensure data quality of the financial reporting",
               "<b>Automating daily processes</b>",
               "<b>Organizing and managing town-hall events</b>"]} />
+        </div>
+        <div>
+          <CvItem
+            from={"Feb. 2018"}
+            to={"Apr. 2019"} title="Internship - Business Analyst"
+            description="Management control team"
+            logo={logoSg}
+            location="Paris"
+            bulletPoints={["<b>Business analyst</b> for the development of a digital platform in ITEC/COO team",
+            "Gathering requirements, writing functional specifications and conduct user testing"]} />
+        </div>
+        <div>
+          <CvItem
+            from={"Feb. 2018"}
+            to={"Apr. 2019"} title="Internship - BVA"
+            description="Business Intelligence developer"
+            logo={logoBva}
+            location="Hong Kong"
+            bulletPoints={[
+              "<b>Developing a tool to automate invoice processing</b> and cost analysis",
+              "Backend using php and mySQL",
+              "<b>PowerBI</b> for dashboarding and analysis"]} />
         </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -93,7 +119,7 @@ export default function App() {
             to={"Oct. 2022"}
             title="Software Engineer"
             description="Fullstack software engineer in QDR team in Societe Generale"
-            logo={logo}
+            logo={logoSg}
             bulletPoints={[
               "<b>Day to day development</b> and support directly for traders on trading floor",
               "<b>Algorithm trading desk tactical IT:</b> sets of microservices to enable the business such as risk and p&L reporting, news notification or exposing historical data for analysis",

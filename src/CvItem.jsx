@@ -9,9 +9,9 @@ import { CardMedia } from '@mui/material';
 
 
 
-export default function CvItem({from, to, title, description, logo, bulletPoints, location, logoDimension}){
-  const mediumscreen = useMediaQuery('(min-width:600px) and (max-width:1536px)');
-  const bigscreen = useMediaQuery('(min-width:1536px)');
+export default function CvItem({from, to, title, description, logo, bulletPoints, location}){
+  const mediumscreen = useMediaQuery('(min-width:800px)');
+  const bigscreen = useMediaQuery('(min-width:1200px)');
 
   const styles = {
     media: {
@@ -26,7 +26,7 @@ export default function CvItem({from, to, title, description, logo, bulletPoints
   }
   
 
-  const width = bigscreen ? 1400 : 365;
+  const width = bigscreen ? 1400 : mediumscreen ? 1200 : 365;
   const fontSize = bigscreen ? 18 : 15;
   const imgSize = bigscreen ? '100px' : mediumscreen ? '75px' : '50px';
     return (

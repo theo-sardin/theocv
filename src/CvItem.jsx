@@ -9,7 +9,7 @@ import { CardMedia } from '@mui/material';
 
 
 
-export default function CvItem({from, to, title, description, logo, bulletPoints, location}){
+export default function CvItem({from, to, title, description, logo, bulletPoints, location, logoDimension}){
   const matches = useMediaQuery('(min-width:600px)');
 
   const styles = {
@@ -17,7 +17,7 @@ export default function CvItem({from, to, title, description, logo, bulletPoints
       height: 140,
       borderRadius: "4px",
       position: "absolute",
-      marginLeft: matches ? 105 : 35,
+      marginLeft: matches ? 150 : 35,
 
       zIndex: 1000
     }
@@ -25,17 +25,17 @@ export default function CvItem({from, to, title, description, logo, bulletPoints
   }
   
 
-  const width = matches ? 1000 : 365;
+  const width = matches ? 1400 : 365;
   const fontSize = matches ? 18 : 15;
   const imgSize = matches ? '100px' :  '50px';
     return (
-      <Card sx={{ maxWidth: width, width: width, marginBottom: 5}}>
+      <Card sx={{ maxWidth: width, width: width, marginBottom: 1}}>
           <CardContent>
           <CardMedia sx={styles.media}>
             <img src={logo} style={{width: imgSize, height:imgSize}}/>
       </CardMedia>
             <Typography sx={{ fontSize: fontSize }} color="text.primary" gutterBottom>
-              {from} - {to} | {location}
+              <i>{from} - {to} | {location}</i>
             </Typography>
             <Typography variant="h5" component="div">
               {title}

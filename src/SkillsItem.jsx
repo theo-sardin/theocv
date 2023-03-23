@@ -13,7 +13,7 @@ export default function SkillItem({category, listSkills}) {
   const fontSize = bigscreen ? 18 : 15;
   console.log(listSkills);
   return (
-    <Box sx={{ width: '100vw', display: 'flex', justifyContent: 'center' }}>
+    <Box sx={{ width: '97vw', display: 'flex', justifyContent: 'center' }}>
       <Card sx={{ maxWidth: cardWidth, width: cardWidth }}>
 
         <CardContent>
@@ -22,7 +22,7 @@ export default function SkillItem({category, listSkills}) {
           </Typography>
           <div style={{display:'flex', flexDirection: 'row', gap: 100}}>
           {
-            listSkills.map(skill => {return<><Box><Typography component="legend">{skill.name}</Typography><Rating name="read-only" value={skill.rating} readOnly /></Box></>})
+            listSkills.map(skill => {return<><Box sx={{marginBottom: 1}}><Typography component="legend">{skill.name}</Typography><Rating name="read-only" value={skill.rating} readOnly /></Box></>})
           }</div>
 
         </CardContent>

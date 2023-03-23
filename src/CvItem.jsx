@@ -17,7 +17,7 @@ export default function CvItem({from, to, title, description, logo, bulletPoints
       height: 140,
       borderRadius: "4px",
       position: "absolute",
-      marginLeft: bigscreen ? 150 : mediumscreen ? 70 :  35,
+      marginLeft: bigscreen ? 160 : mediumscreen ? 70 :  35,
 
       zIndex: 1000
     }
@@ -29,7 +29,7 @@ export default function CvItem({from, to, title, description, logo, bulletPoints
   const fontSize = bigscreen ? 18 : 15;
   const imgSize = bigscreen ? '100px' : mediumscreen ? '75px' : '50px';
     return (
-      <Box sx={{width: '100vw', display: 'flex',justifyContent: 'center'}}>
+      <Box sx={{width: '97vw', display: 'flex',justifyContent: 'center'}}>
       <Card sx={{ maxWidth: cardWidth, width: cardWidth, marginBottom: 1}}>
           <CardContent>
           <CardMedia sx={styles.media}>

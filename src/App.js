@@ -168,7 +168,6 @@ export default function App() {
                 {'name': 'Python', 'rating': 3},
                 {'name': 'Typescript', 'rating': 3},
                 {'name': 'Javascript', 'rating': 2},
-                {'name': 'React', 'rating': 1},
                 {'name': 'C#', 'rating': 1}
 
               ]}
@@ -183,9 +182,22 @@ export default function App() {
                 {'name': 'Kubernetes', 'rating': 3},
                 {'name': 'PostgreSQL', 'rating': 3},
                 {'name': 'Angular', 'rating': 3},
-                {'name': 'Unix', 'rating': 3},
+                {'name': 'React', 'rating': 1},
                 {'name': 'Windows', 'rating': 2},
-                {'name': 'Unix', 'rating': 3},
+                {'name': 'Unix', 'rating': 3}
+              ]}
+            
+          />
+            <SkillItem
+            category={'Languages and misc'}
+            listSkills=
+              {[
+                {'name': 'English', 'rating': 4},
+                {'name': 'French', 'rating': 5},
+                {'name': 'Italian', 'rating': 2},
+                {'name': 'Spanish', 'rating': 1},
+                {'name': 'Guitar', 'rating': 3},
+                {'name': 'Skiing', 'rating': 3},
               ]}
             
           />

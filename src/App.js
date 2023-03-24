@@ -49,7 +49,7 @@ export default function App() {
   const[workResumeItems, setWorkItems] = React.useState([{from: "", to: "", title: "", description: "", location:"", logoId:"", bulletPoints: []}]);
   const[educationResumeItems, setEducationItems] = React.useState([{from: "", to: "", title: "", description: "", location:"", logoId:"", bulletPoints: []}]);
 
-  useEffect(()=>{fetch('http://theocv-backend.eu-west-3.elasticbeanstalk.com/resume/data/work', {
+  useEffect(()=>{fetch('https://theocv-backend.eu-west-3.elasticbeanstalk.com/resume/data/work', {
     method: 'GET',
     headers: {
       Accept: 'application/json',
@@ -57,7 +57,7 @@ export default function App() {
     }
   }).then(resp => resp.json().then(x=>setWorkItems(x)))},[]);
 
-  useEffect(()=>{fetch('http://theocv-backend.eu-west-3.elasticbeanstalk.com/resume/data/education', {
+  useEffect(()=>{fetch('https://theocv-backend.eu-west-3.elasticbeanstalk.com/resume/data/education', {
     method: 'GET',
     headers: {
       Accept: 'application/json',

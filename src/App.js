@@ -13,8 +13,9 @@ import CvAppBar from './CvAppBar.jsx';
 import CvItem from './CvItem';
 import SkillItem from './SkillsItem.jsx';
 import { useEffect } from 'react';
-
-
+import { Button, Input } from '@mui/material';
+import Fab from '@mui/material/Fab';
+import logoGpt from './assets/chatgpt-logo.svg';
 function TabPanel(props) {
 
   const { children, value, index, ...other } = props;
@@ -38,6 +39,8 @@ function TabPanel(props) {
   );
 }
 
+
+
 export default function App() {
   const logos = {
     logoSg: logoSg,
@@ -45,30 +48,54 @@ export default function App() {
     logoDauphine: logoDauphine,
     logoTse: logoTse
   }
+  const fabStyle = {
+    position: 'fixed',
+    bottom: 16,
+    right: 16,
+    marginRight: 1,
+    background: logoGpt
+  };
+
   const [value, setValue] = React.useState(0);
-  const[workResumeItems, setWorkItems] = React.useState([{from: "", to: "", title: "", description: "", location:"", logoId:"", bulletPoints: []}]);
-  const[educationResumeItems, setEducationItems] = React.useState([{from: "", to: "", title: "", description: "", location:"", logoId:"", bulletPoints: []}]);
+  const [workResumeItems, setWorkItems] = React.useState([{ from: "", to: "", title: "", description: "", location: "", logoId: "", bulletPoints: [] }]);
+  const [educationResumeItems, setEducationItems] = React.useState([{ from: "", to: "", title: "", description: "", location: "", logoId: "", bulletPoints: [] }]);
+  const [prompt, setPrompt] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
+  function handlePromptChange(e){
+    console.log(e.target.value)
+    setPrompt(e.target.value);
+  }
 
-  useEffect(()=>{fetch('https://theocv-backend.eu-west-3.elasticbeanstalk.com/resume/data/work', {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    }
-  }).then(resp => resp.json().then(x=>setWorkItems(x)))},[]);
+  function gptifyWork() {
+    setIsLoading(true)
+    fetch('https://theocv-backend.eu-west-3.elasticbeanstalk.com/resume/gpt/work?prompt='+ prompt)
+    .then(resp => resp.json()).then(data=>{setWorkItems(data); setIsLoading(false)});
+  }
 
-  useEffect(()=>{fetch('https://theocv-backend.eu-west-3.elasticbeanstalk.com/resume/data/education', {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    }
-  }).then(resp => resp.json().then(x=>setEducationItems(x)))}, []);
+  useEffect(() => {
+    fetch('https://theocv-backend.eu-west-3.elasticbeanstalk.com/resume/data/work', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }
+    }).then(resp => resp.json().then(x => setWorkItems(x)))
+  }, []);
+
+  useEffect(() => {
+    fetch('https://theocv-backend.eu-west-3.elasticbeanstalk.com/resume/data/education', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }
+    }).then(resp => resp.json().then(x => setEducationItems(x)))
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  
+
   return (
 
     <>
@@ -81,7 +108,7 @@ export default function App() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        {workResumeItems.map(item => 
+        {workResumeItems.map(item =>
           <div>
             <CvItem
               from={item.from}
@@ -90,13 +117,15 @@ export default function App() {
               description={item.description}
               logo={logos[item.logoId]}
               location={item.location}
-              bulletPoints={item.bulletPoints} />
+              bulletPoints={item.bulletPoints}
+              isLoading={isLoading} />
           </div>
         )}
-
+        <Fab sx={fabStyle}></Fab>
+      <Input onChange={handlePromptChange}/> <Button onClick={gptifyWork}></Button>
       </TabPanel>
       <TabPanel value={value} index={1}>
-      {educationResumeItems.map(item => 
+        {educationResumeItems.map(item =>
           <div>
             <CvItem
               from={item.from}

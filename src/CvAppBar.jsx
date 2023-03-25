@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Button } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Button } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Avatar from '@mui/material/Avatar';
 import avatar from './assets/theo-avatar.png'
@@ -13,6 +13,7 @@ function CvAppBar() {
         <IconButton color="inherit" href="https://github.com/theo-sardin/theocv" >
           <GitHubIcon />
         </IconButton>
+        
         <div style={{ flexGrow: 1 }} />
 
         <Avatar alt="Theo Sardin" src={avatar} sx={{marginRight: 2}} />

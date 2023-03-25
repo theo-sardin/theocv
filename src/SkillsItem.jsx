@@ -10,8 +10,6 @@ export default function SkillItem({category, listSkills}) {
   const mediumscreen = useMediaQuery('(min-width:600px)');
   const bigscreen = useMediaQuery('(min-width:1200px)');
   const cardWidth = bigscreen ? 1500 : mediumscreen ? 1200 : 365;
-  const fontSize = bigscreen ? 18 : 15;
-  console.log(listSkills);
   return (
     <Box sx={{ width: '97vw', display: 'flex', justifyContent: 'center', marginBottom: 5 }}>
       <Card sx={{ maxWidth: cardWidth, width: cardWidth }}>

@@ -53,7 +53,7 @@ export default function App() {
     bottom: 16,
     right: 16,
     marginRight: 1,
-    background: logoGpt
+    backgroundImage: logoGpt
   };
 
   const [value, setValue] = React.useState(0);
@@ -122,7 +122,7 @@ export default function App() {
           </div>
         )}
         <Fab sx={fabStyle}></Fab>
-      <Input onChange={handlePromptChange}/> <Button onClick={gptifyWork}></Button>
+      <Input onChange={handlePromptChange}/> <Button onClick={gptifyWork} disabled={isLoading}>GPTFIY !</Button>
       </TabPanel>
       <TabPanel value={value} index={1}>
         {educationResumeItems.map(item =>

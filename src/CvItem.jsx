@@ -3,8 +3,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { margin } from '@mui/system';
-import { CardMedia, CircularProgress } from '@mui/material';
+import { CardMedia } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
 
@@ -28,7 +28,7 @@ export default function CvItem({ from, to, title, description, logo, bulletPoint
               </Typography>
               <div style={{ flexGrow: 1 }}></div>
               <CardMedia sx={{ marginTop: '-1%' }}>
-                <img src={logo} style={{ width: imgSize, height: imgSize }} />
+                <img src={logo} alt={"logo"} style={{ width: imgSize, height: imgSize }} />
               </CardMedia>
             </div><Typography variant="h5" component="div" style={{ marginTop: '-2%' }}>
                 {title}

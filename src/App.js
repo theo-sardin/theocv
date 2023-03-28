@@ -16,6 +16,8 @@ import { useEffect } from 'react';
 import { Button, Input } from '@mui/material';
 import Fab from '@mui/material/Fab';
 import logoGpt from './assets/chatgpt-logo.svg';
+import GptifyDrawer from './GptifyDrawer';
+import PsychologyIcon from '@mui/icons-material/Psychology';
 function TabPanel(props) {
 
   const { children, value, index, ...other } = props;
@@ -53,14 +55,15 @@ export default function App() {
     bottom: 16,
     right: 16,
     marginRight: 1,
-    backgroundImage: logoGpt
+    zIndex: 10000
   };
-
   const [value, setValue] = React.useState(0);
+  const [isDrawerOpen, setOpen] = React.useState(false);
   const [workResumeItems, setWorkItems] = React.useState([{ from: "", to: "", title: "", description: "", location: "", logoId: "", bulletPoints: [] }]);
   const [educationResumeItems, setEducationItems] = React.useState([{ from: "", to: "", title: "", description: "", location: "", logoId: "", bulletPoints: [] }]);
   const [prompt, setPrompt] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
+
   function handlePromptChange(e){
     console.log(e.target.value)
     setPrompt(e.target.value);
@@ -68,12 +71,12 @@ export default function App() {
 
   function gptifyWork() {
     setIsLoading(true)
-    fetch('https://theocv-backend.eu-west-3.elasticbeanstalk.com/resume/gpt/work?prompt='+ prompt)
+    fetch('https://backend.theo-sardin-resume.dev/resume/gpt/work?prompt='+ prompt)
     .then(resp => resp.json()).then(data=>{setWorkItems(data); setIsLoading(false)});
   }
 
   useEffect(() => {
-    fetch('https://theocv-backend.eu-west-3.elasticbeanstalk.com/resume/data/work', {
+    fetch('https://backend.theo-sardin-resume.dev/resume/data/work', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -83,7 +86,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    fetch('https://theocv-backend.eu-west-3.elasticbeanstalk.com/resume/data/education', {
+    fetch('https://backend.theo-sardin-resume.dev/resume/data/education', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -121,8 +124,8 @@ export default function App() {
               isLoading={isLoading} />
           </div>
         )}
-        <Fab sx={fabStyle}></Fab>
-      <Input onChange={handlePromptChange}/> <Button onClick={gptifyWork} disabled={isLoading}>GPTFIY !</Button>
+        <Fab sx={fabStyle} color="primary" onClick={()=>{setOpen(!isDrawerOpen)}}><PsychologyIcon style={{ fontSize: '50px' }} /></Fab>
+      
       </TabPanel>
       <TabPanel value={value} index={1}>
         {educationResumeItems.map(item =>
@@ -184,6 +187,7 @@ export default function App() {
           />
         </div>
       </TabPanel>
+      <GptifyDrawer open={isDrawerOpen} handlePromptChange={handlePromptChange} handleSubmit={gptifyWork} isLoading={isLoading} ></GptifyDrawer>
     </>
 
   )

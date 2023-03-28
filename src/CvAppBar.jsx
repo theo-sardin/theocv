@@ -6,7 +6,7 @@ import avatar from './assets/theo-avatar.png'
 
 function CvAppBar() {
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{width: '99vw', alignSelf: 'center', justifySelf: 'center'}}>
       <Toolbar>
         <Button color="inherit" href="/" sx={{marginLeft: 2}}>Resume</Button>
         <Button color="inherit" href="/about-me">About Me</Button>

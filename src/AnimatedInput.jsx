@@ -6,7 +6,7 @@ export const AnimatedInput = ({placeholders: passedPlaceholder = [], ...passedPr
     function sleep(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
     }
-    const [placeholders, setPlaceholders] = useState(passedPlaceholder);
+    const [placeholders] = useState(passedPlaceholder);
     const [placeholder, setPlaceholder] = useState(placeholders[0].slice(0, 0));
     const [placeholderIndex, setPlaceholderIndex] = useState(0);
     const [initialCurrentPlaceholder, setInitialCurrentPlaceholder] = useState(placeholders[0]);

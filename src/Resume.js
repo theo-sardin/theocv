@@ -69,12 +69,12 @@ export default function Resume() {
 
   function gptifyWork() {
     setIsLoading(true)
-    fetch('http://localhost:5555/resume/gpt/work?prompt='+ prompt)
+    fetch('https://backend.theosardin-resume.dev/resume/gpt/work?prompt='+ prompt)
     .then(resp => resp.json()).then(data=>{setWorkItems(data); setIsLoading(false)});
   }
 
   useEffect(() => {
-    fetch('http://localhost:5555/resume/data/work', {
+    fetch('https://backend.theosardin-resume.dev/resume/data/work', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -84,7 +84,7 @@ export default function Resume() {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5555/resume/data/education', {
+    fetch('https://backend.theosardin-resume.dev/resume/data/education', {
       method: 'GET',
       headers: {
         Accept: 'application/json',

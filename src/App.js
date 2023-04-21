@@ -19,3 +19,4 @@ export default function App() {
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<AboutMe />, document.getElementById("root"));

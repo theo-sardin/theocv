@@ -69,12 +69,12 @@ export default function Resume() {
 
   function gptifyWork() {
     setIsLoading(true)
-    fetch('https://backend.theosardin-resume.dev/resume/gpt/work?prompt='+ prompt)
+    fetch('https://backend.theo-sardin-resume.dev/resume/gpt/work?prompt='+ prompt)
     .then(resp => resp.json()).then(data=>{setWorkItems(data); setIsLoading(false)});
   }
 
   useEffect(() => {
-    fetch('https://backend.theosardin-resume.dev/resume/data/work', {
+    fetch('https://backend.theo-sardin-resume.dev/resume/data/work', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -84,7 +84,7 @@ export default function Resume() {
   }, []);
 
   useEffect(() => {
-    fetch('https://backend.theosardin-resume.dev/resume/data/education', {
+    fetch('https://backend.theo-sardin-resume.dev/resume/data/education', {
       method: 'GET',
       headers: {
         Accept: 'application/json',

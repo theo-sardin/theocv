@@ -13,7 +13,7 @@ export default function AboutMe() {
                 <CardContent sx={{padding: '20px'}}>
                     <Box sx={{ display: 'flex' }}><Phone sx={{ marginRight: 1 }}></Phone><Typography>+336 36 84 36 31</Typography></Box>
                     <Box sx={{ display: 'flex' }}><Mail sx={{ marginRight: 1 }}></Mail><Typography>sardin.theo@gmail.com</Typography></Box>
-                    <Box sx={{ display: 'flex' }}><Cake sx={{ marginRight: 1 }}></Cake><Typography>04/06/1993</Typography></Box>
+                    <Box sx={{ display: 'flex' }}><Cake sx={{ marginRight: 1 , marginBottom: '10px'}}></Cake><Typography>04/06/1993</Typography></Box>
                     <Typography>
                         Hello, I am Theo Sardin, a 29 years old developer.
                         I am French and grew up in Toulouse in the south-west, and I am really passionate about development.
